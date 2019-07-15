@@ -1,0 +1,2 @@
+1. Use the same interface class to host retrofit method calls for the same endpoint.
+2.
