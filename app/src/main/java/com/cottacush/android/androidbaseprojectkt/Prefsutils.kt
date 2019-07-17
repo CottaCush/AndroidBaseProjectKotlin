@@ -33,12 +33,6 @@ class PrefsUtils(context: Context, private val gson: Gson, fileName: String = "g
         }
     }
 
-    fun putInt(key: String, value: Boolean) {
-        sharedPref.edit {}
-        putBoolean(key, value)
-    }
-
-
     fun putFloat(key: String, value: Float) {
         sharedPref.edit()
             .putFloat(key, value)
