@@ -37,6 +37,7 @@ ext.versions = [
 
         //Network
         retrofit            : "2.5.0",
+        okhttp: "3.10.0"
 
 ]
 
