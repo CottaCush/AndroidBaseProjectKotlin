@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt
+package com.cottacush.android.androidbaseprojectkt.utils
 
 sealed class Result<out T : Any> {
 

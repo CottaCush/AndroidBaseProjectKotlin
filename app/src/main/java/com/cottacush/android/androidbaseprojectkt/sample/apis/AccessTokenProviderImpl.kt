@@ -1,8 +1,7 @@
 package com.cottacush.android.androidbaseprojectkt.sample.apis
 
-import com.cottacush.android.androidbaseprojectkt.PrefsUtils
+import com.cottacush.android.androidbaseprojectkt.utils.PrefsUtils
 import com.cottacush.android.androidbaseprojectkt.auth.AccessTokenProvider
-import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleAPIAuthService
 import javax.inject.Inject
 import javax.inject.Singleton
 

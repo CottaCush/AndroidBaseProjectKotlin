@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt
+package com.cottacush.android.androidbaseprojectkt.utils
 
 import android.app.Application
 import android.content.Context

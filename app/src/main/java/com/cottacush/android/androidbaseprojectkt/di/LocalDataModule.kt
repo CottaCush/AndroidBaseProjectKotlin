@@ -1,7 +1,7 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
 import android.app.Application
-import com.cottacush.android.androidbaseprojectkt.PrefsUtils
+import com.cottacush.android.androidbaseprojectkt.utils.PrefsUtils
 import com.google.gson.Gson
 import dagger.Module
 import dagger.Provides
@@ -12,6 +12,7 @@ class LocalDataModule {
 
     @Provides
     @Singleton
-    fun providePrefsUtils(app: Application, gson: Gson): PrefsUtils = PrefsUtils(app, gson)
+    fun providePrefsUtils(app: Application, gson: Gson): PrefsUtils =
+        PrefsUtils(app, gson)
 
 }
