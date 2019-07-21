@@ -10,7 +10,7 @@ class AccessTokenAuthenticator(
 ) : Authenticator {
 
     companion object{
-        const val ACCESS_TOKEN_KEY = "access_token"
+        const val AUTH_KEY = "access_token" //change to api_key, appid, auth_key etc, as required.
     }
 
     override fun authenticate(route: Route?, response: Response): Request? {
@@ -20,20 +20,20 @@ class AccessTokenAuthenticator(
             val newToken = tokenProvider.token()
 
             // Check if the request made was previously made as an authenticated request.
-            if (response.request().url().queryParameter(ACCESS_TOKEN_KEY) != null) {
+            if (response.request.url.queryParameter(AUTH_KEY) != null) {
 
-                val requestBuilder = response.request().newBuilder()
-                val urlBuilder = response.request().url().newBuilder().removeAllQueryParameters(ACCESS_TOKEN_KEY)
+                val requestBuilder = response.request.newBuilder()
+                val urlBuilder = response.request.url.newBuilder().removeAllQueryParameters(AUTH_KEY)
 
                 // If the token has changed since the request was made, use the new token.
                 if (newToken != token) {
-                    return requestBuilder.url(urlBuilder.addQueryParameter(ACCESS_TOKEN_KEY, newToken).build()).build()
+                    return requestBuilder.url(urlBuilder.addQueryParameter(AUTH_KEY, newToken).build()).build()
                 }
 
                 val updatedToken = tokenProvider.refreshToken() ?: return null
 
                 // Retry the request with the new token.
-                return requestBuilder.url(urlBuilder.addQueryParameter(ACCESS_TOKEN_KEY, updatedToken).build()).build()
+                return requestBuilder.url(urlBuilder.addQueryParameter(AUTH_KEY, updatedToken).build()).build()
             }
         }
         return null

@@ -1,4 +1,4 @@
-package com.r4sh33d.duplicatecontactsremover.di
+package com.cottacush.android.androidbaseprojectkt.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

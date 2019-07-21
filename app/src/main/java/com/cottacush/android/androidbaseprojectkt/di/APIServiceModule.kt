@@ -1,12 +1,10 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
-import android.content.Context
 import com.cottacush.android.androidbaseprojectkt.BuildConfig
-import com.cottacush.android.androidbaseprojectkt.PrefsUtils
 import com.cottacush.android.androidbaseprojectkt.auth.*
-import com.cottacush.android.androidbaseprojectkt.sample.AccessTokenProviderImpl
-import com.cottacush.android.androidbaseprojectkt.sample.ExampleAPIAuthService
-import com.cottacush.android.androidbaseprojectkt.sample.ExampleApiService
+import com.cottacush.android.androidbaseprojectkt.sample.apis.AccessTokenProviderImpl
+import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleAPIAuthService
+import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleApiService
 import com.google.gson.Gson
 import dagger.Lazy
 import dagger.Module
@@ -15,15 +13,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
-class CoreDataModule(private val appContext: Context) {
+class APIServiceModule {
 
     @Provides
-    @ExampleServiceAPI
+    @Named("ExampleService")
     @Singleton
-    fun provideSpecificOkHttpClient(
+    fun provideExampleServiceHttpClient(
         upstream: OkHttpClient,
         accessTokenProvider: AccessTokenProvider
     ): OkHttpClient {
@@ -36,8 +35,7 @@ class CoreDataModule(private val appContext: Context) {
     @Provides
     @Singleton
     fun provideExampleAPIAuthService(
-        client: Lazy<OkHttpClient>,
-        gson: Gson
+        client: Lazy<OkHttpClient>, gson: Gson
     ): ExampleAPIAuthService {
         return Retrofit.Builder()
             .baseUrl(ExampleAPIAuthService.ENDPOINT)
@@ -50,7 +48,7 @@ class CoreDataModule(private val appContext: Context) {
     @Provides
     @Singleton
     fun provideExampleAPIService(
-        @ExampleServiceAPI client: Lazy<OkHttpClient>,
+        @Named("ExampleService") client: Lazy<OkHttpClient>,
         gson: Gson
     ): ExampleApiService {
         return Retrofit.Builder()
@@ -62,17 +60,9 @@ class CoreDataModule(private val appContext: Context) {
     }
 
     @Provides
-    @ExampleServiceAPI
-    @Singleton
-    fun provideAccessTokenProvider(
-        exampleAPIAuthService: ExampleAPIAuthService,
-        prefsUtils: PrefsUtils
-    ): AccessTokenProvider {
-        return AccessTokenProviderImpl(
-            exampleAPIAuthService,
-            prefsUtils
-        )
-    }
+    @Named("ExampleService")
+    fun provideAccessTokenProvider(accessTokenProvider: AccessTokenProviderImpl): AccessTokenProvider =
+        accessTokenProvider
 
     @Provides
     @Singleton
@@ -98,13 +88,4 @@ class CoreDataModule(private val appContext: Context) {
     @Singleton
     fun provideGsonConverterFactory(gson: Gson): GsonConverterFactory =
         GsonConverterFactory.create(gson)
-
-    @Provides
-    @Singleton
-    fun providePrefsUtils(context: Context, gson: Gson): PrefsUtils =
-        PrefsUtils(context, gson)
-
-    @Provides
-    @Singleton
-    fun appContext(): Context = appContext
 }

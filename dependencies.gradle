@@ -36,8 +36,7 @@ ext.versions = [
         timber              : '4.7.1',
 
         //Network
-        retrofit            : "2.5.0",
-        okhttp: "3.10.0"
-
+        retrofit            : "2.6.0",
+        okhttp              : "4.0.1"
 ]
 

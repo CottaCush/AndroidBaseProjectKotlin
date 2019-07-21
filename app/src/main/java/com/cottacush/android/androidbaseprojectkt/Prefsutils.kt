@@ -1,5 +1,6 @@
 package com.cottacush.android.androidbaseprojectkt
 
+import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
@@ -7,9 +8,9 @@ import com.google.gson.Gson
 import java.lang.reflect.Type
 import java.util.ArrayList
 
-class PrefsUtils(context: Context, private val gson: Gson, fileName: String = "global_shared_prefs") {
+class PrefsUtils(app: Application, private val gson: Gson, fileName: String = "global_shared_prefs") {
 
-    private val sharedPref: SharedPreferences = context.getSharedPreferences(fileName, Context.MODE_PRIVATE)
+    private val sharedPref: SharedPreferences = app.getSharedPreferences(fileName, Context.MODE_PRIVATE)
 
     fun putString(key: String, value: String?) {
         sharedPref.edit {
