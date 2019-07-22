@@ -13,8 +13,8 @@ class AccessTokenInterceptor(
             chain.proceed(chain.request())
         } else {
             val requestBuilder = chain.request().newBuilder()
-            val url = chain.request().url().newBuilder()
-                .addQueryParameter(AccessTokenAuthenticator.ACCESS_TOKEN_KEY, token).build()
+            val url = chain.request().url.newBuilder()
+                .addQueryParameter(AccessTokenAuthenticator.AUTH_KEY, token).build()
             requestBuilder.url(url)
             return chain.proceed(requestBuilder.build())
         }

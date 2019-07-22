@@ -19,6 +19,8 @@ import javax.inject.Singleton
 @Module
 class APIServiceModule {
 
+    //TODO ExampleAPIService is for testing purpose. Modify this class to suit your real API service set up
+
     @Provides
     @Named("ExampleService")
     @Singleton

@@ -1,7 +1,8 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
 import androidx.lifecycle.ViewModel
-import com.cottacush.android.androidbaseprojectkt.sample.catlist.CatsListViewModel
+import androidx.lifecycle.ViewModelProvider
+import com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -11,9 +12,13 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelModule {
 
     @Binds
+    abstract fun bindViewModelFactory(factory: ExampleAppViewModelFactory): ViewModelProvider.Factory
+
+    @Binds
     @IntoMap
-    @ViewModelKey(CatsListViewModel::class)
-    abstract fun bindContactSourcesViewModel(viewModel: CatsListViewModel): ViewModel
+    @ViewModelKey(BreedListViewModel::class)
+    abstract fun bindContactSourcesViewModel(viewModel: BreedListViewModel): ViewModel
 
     //TODO Add other view models.
+
 }

@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.utils
+package com.cottacush.android.androidbaseprojectkt.networkutils
 
 import okhttp3.ResponseBody
 import org.json.JSONObject
@@ -20,9 +20,7 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
         val errorBody = response.errorBody()
         if (errorBody != null) {
             return Result.Error(
-                getErrorCode(
-                    errorBody
-                ), getErrorMessage(errorBody)
+                getErrorCode(errorBody), getErrorMessage(errorBody)
             )
         }
     }

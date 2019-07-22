@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.base
+package com.cottacush.android.androidbaseprojectkt.networkutils
 
 sealed class LoadingStatus {
 

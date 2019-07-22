@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.utils
+package com.cottacush.android.androidbaseprojectkt.networkutils
 
 sealed class Result<out T : Any> {
 

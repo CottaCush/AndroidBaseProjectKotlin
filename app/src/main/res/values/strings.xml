@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AndroidBaseProjectKotlin</string>
+    <string name="default_loading_message">Loading, Please wait . . .</string>
 </resources>
