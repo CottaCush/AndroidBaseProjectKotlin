@@ -5,6 +5,8 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Breed(
+    @SerializedName("id")
+    val id: String,
     @SerializedName("description")
     val description: String,
     @SerializedName("life_span")

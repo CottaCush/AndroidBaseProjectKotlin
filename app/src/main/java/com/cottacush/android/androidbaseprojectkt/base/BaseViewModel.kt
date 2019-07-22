@@ -8,7 +8,8 @@ import kotlinx.coroutines.Job
 abstract class BaseViewModel(mainDispatcher: CoroutineDispatcher) : ViewModel() {
 
     private val job = Job()
-    val scope = CoroutineScope(job + mainDispatcher)
+
+    val coroutineScope = CoroutineScope(job + mainDispatcher)
 
     override fun onCleared() {
         super.onCleared()

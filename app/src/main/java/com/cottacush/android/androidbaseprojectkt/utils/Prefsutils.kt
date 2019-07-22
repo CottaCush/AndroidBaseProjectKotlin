@@ -1,16 +1,13 @@
 package com.cottacush.android.androidbaseprojectkt.utils
 
-import android.app.Application
-import android.content.Context
 import android.content.SharedPreferences
 import androidx.core.content.edit
 import com.google.gson.Gson
 import java.lang.reflect.Type
-import java.util.ArrayList
+import java.util.*
+import javax.inject.Inject
 
-class PrefsUtils(app: Application, private val gson: Gson, fileName: String = "global_shared_prefs") {
-
-    private val sharedPref: SharedPreferences = app.getSharedPreferences(fileName, Context.MODE_PRIVATE)
+class PrefsUtils @Inject constructor(private val sharedPref: SharedPreferences, private val gson: Gson) {
 
     fun putString(key: String, value: String?) {
         sharedPref.edit {
@@ -36,8 +33,8 @@ class PrefsUtils(app: Application, private val gson: Gson, fileName: String = "g
 
     fun putFloat(key: String, value: Float) {
         sharedPref.edit()
-            .putFloat(key, value)
-            .apply()
+                .putFloat(key, value)
+                .apply()
     }
 
     fun putStringSet(key: String, values: Set<String>) {
