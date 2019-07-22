@@ -33,7 +33,6 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
 
-
     override fun showLoading() {
         showLoading(R.string.default_loading_message)
     }
@@ -60,8 +59,10 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
 
     override fun showError(message: String) {
         hideKeyBoard()
+        dismissLoading()
         MaterialDialog(this).show {
             title(text = message)
+            positiveButton(R.string.ok)
         }
     }
 }

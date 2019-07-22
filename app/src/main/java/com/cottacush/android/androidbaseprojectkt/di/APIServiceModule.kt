@@ -1,10 +1,14 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
+import android.content.Context
+import android.content.SharedPreferences
+import com.cottacush.android.androidbaseprojectkt.App
 import com.cottacush.android.androidbaseprojectkt.BuildConfig
 import com.cottacush.android.androidbaseprojectkt.auth.*
 import com.cottacush.android.androidbaseprojectkt.sample.apis.AccessTokenProviderImpl
 import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleAPIAuthService
 import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleApiService
+import com.cottacush.android.androidbaseprojectkt.utils.PrefsUtils
 import com.google.gson.Gson
 import dagger.Lazy
 import dagger.Module
@@ -16,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Named
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [LocalDataModule::class])
 class APIServiceModule {
 
     //TODO ExampleAPIService is for testing purpose. Modify this class to suit your real API service set up
@@ -26,7 +30,7 @@ class APIServiceModule {
     @Singleton
     fun provideExampleServiceHttpClient(
         upstream: OkHttpClient,
-        accessTokenProvider: AccessTokenProvider
+        @Named("ExampleService") accessTokenProvider: AccessTokenProvider
     ): OkHttpClient {
         return upstream.newBuilder()
             .addInterceptor(AccessTokenInterceptor(accessTokenProvider))

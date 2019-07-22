@@ -7,9 +7,9 @@ import retrofit2.http.Query
 
 interface ExampleApiService {
     companion object {
-        const val ENDPOINT = "https://api.thecatapi.com/v1"
+        const val ENDPOINT = "https://api.thecatapi.com/"
     }
 
-    @GET("/breeds")
+    @GET("v1/breeds")
     suspend fun getCatBreeds(@Query("limit") limit: Int): Response<List<Breed>>
 }

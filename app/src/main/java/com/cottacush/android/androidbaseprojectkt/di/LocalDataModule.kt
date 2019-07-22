@@ -10,7 +10,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class LocalDataModule(val app: Application) {
+class LocalDataModule {
 
     @Provides
     @Singleton
@@ -19,7 +19,7 @@ class LocalDataModule(val app: Application) {
 
     @Provides
     @Singleton
-    fun provideGlobalSharedPreference(): SharedPreferences =
+    fun provideGlobalSharedPreference(app: Application): SharedPreferences =
         app.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)
 
 }

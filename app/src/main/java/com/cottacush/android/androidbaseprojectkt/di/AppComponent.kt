@@ -8,7 +8,7 @@ import javax.inject.Singleton
 
 
 @Singleton
-@Component(modules = [LocalDataModule::class, APIServiceModule::class, ViewModelModule::class])
+@Component(modules = [APIServiceModule::class, ViewModelModule::class])
 interface AppComponent {
 
     fun inject(target: BreedListFragment)
@@ -19,6 +19,6 @@ interface AppComponent {
         fun build(): AppComponent
 
         @BindsInstance
-        fun application(application: Application): Builder
+        fun application(app: Application): Builder
     }
 }

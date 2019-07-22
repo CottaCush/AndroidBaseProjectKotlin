@@ -10,6 +10,7 @@ android {
     dataBinding {
         enabled = true
     }
+
     defaultConfig {
         applicationId "com.cottacush.android.androidbaseprojectkt"
         minSdkVersion versions.minSdkVersion
