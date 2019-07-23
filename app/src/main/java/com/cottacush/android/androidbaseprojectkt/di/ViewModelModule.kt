@@ -19,6 +19,5 @@ abstract class ViewModelModule {
     @ViewModelKey(BreedListViewModel::class)
     abstract fun bindContactSourcesViewModel(viewModel: BreedListViewModel): ViewModel
 
-    //TODO Add other viewmodels.
-
+    // TODO Add other ViewModels.
 }

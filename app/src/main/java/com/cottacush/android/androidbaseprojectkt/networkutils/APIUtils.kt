@@ -15,7 +15,7 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
             return Result.Success(body)
         }
     }
-    //This else branch is specific to cotta-cush APIs
+    // This else branch is specific to cotta-cush APIs
     else {
         val errorBody = response.errorBody()
         if (errorBody != null) {
@@ -24,10 +24,9 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
             )
         }
     }
-    //Fallback to regular status code and message
+    // Fallback to regular status code and message
     return Result.Error("${response.code()}", response.message())
 }
-
 
 fun getErrorMessage(responseBody: ResponseBody): String {
     return try {
@@ -48,4 +47,3 @@ fun getErrorCode(errorBody: ResponseBody): String {
         GENERIC_ERROR_CODE
     }
 }
-

@@ -6,7 +6,6 @@ import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleApiService
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import com.cottacush.android.androidbaseprojectkt.networkutils.Result
 import com.cottacush.android.androidbaseprojectkt.networkutils.getAPIResult
-import java.io.IOException
 import java.lang.Exception
 import javax.inject.Inject
 

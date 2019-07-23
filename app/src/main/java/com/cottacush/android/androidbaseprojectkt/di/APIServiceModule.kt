@@ -1,14 +1,10 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
-import android.content.Context
-import android.content.SharedPreferences
-import com.cottacush.android.androidbaseprojectkt.App
 import com.cottacush.android.androidbaseprojectkt.BuildConfig
 import com.cottacush.android.androidbaseprojectkt.auth.*
 import com.cottacush.android.androidbaseprojectkt.sample.apis.AccessTokenProviderImpl
 import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleAPIAuthService
 import com.cottacush.android.androidbaseprojectkt.sample.apis.ExampleApiService
-import com.cottacush.android.androidbaseprojectkt.utils.PrefsUtils
 import com.google.gson.Gson
 import dagger.Lazy
 import dagger.Module
@@ -23,7 +19,7 @@ import javax.inject.Singleton
 @Module(includes = [LocalDataModule::class])
 class APIServiceModule {
 
-    //TODO ExampleAPIService is for testing purpose. Modify this class to suit your real API service set up
+    // TODO ExampleAPIService is for testing purpose. Modify this class to suit your real API service set up
 
     @Provides
     @Named("ExampleService")
@@ -41,7 +37,8 @@ class APIServiceModule {
     @Provides
     @Singleton
     fun provideExampleAPIAuthService(
-        client: Lazy<OkHttpClient>, gson: Gson
+        client: Lazy<OkHttpClient>,
+        gson: Gson
     ): ExampleAPIAuthService {
         return Retrofit.Builder()
             .baseUrl(ExampleAPIAuthService.ENDPOINT)

@@ -6,7 +6,6 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import androidx.core.view.children
 
-
 fun View.show() {
     visibility = VISIBLE
 }
@@ -21,4 +20,3 @@ fun ViewGroup.showViewWithChildren() {
         view.show()
     }
 }
-

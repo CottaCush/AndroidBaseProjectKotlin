@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.auth;
+package com.cottacush.android.androidbaseprojectkt.auth
 
 import okhttp3.Authenticator
 import okhttp3.Request
@@ -9,8 +9,8 @@ class AccessTokenAuthenticator(
     private val tokenProvider: AccessTokenProvider
 ) : Authenticator {
 
-    companion object{
-        const val AUTH_KEY = "access_token" //change to api_key, appid, auth_key etc, as required.
+    companion object {
+        const val AUTH_KEY = "access_token" // change to api_key, appid, auth_key etc, as required.
     }
 
     override fun authenticate(route: Route?, response: Response): Request? {

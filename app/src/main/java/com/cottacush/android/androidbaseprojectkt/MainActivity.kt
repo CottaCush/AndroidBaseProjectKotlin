@@ -30,7 +30,6 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
         appBarConfiguration = AppBarConfiguration(navController.graph)
     }
 
-
     fun setUpToolBar(toolbarTitle: String, isRootPage: Boolean = false) {
         supportActionBar!!.run {
             setDisplayHomeAsUpEnabled(!isRootPage)
@@ -38,7 +37,6 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
             toolbar.title = toolbarTitle
         }
     }
-
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, appBarConfiguration)

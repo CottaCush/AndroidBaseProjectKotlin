@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-
 class BreedListViewModel @Inject constructor(private val exampleRepository: ExampleRepository) :
     BaseViewModel(Dispatchers.Main) {
 
@@ -20,12 +19,10 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
     val navigateToSelectedBreed: LiveData<Breed>
         get() = _navigateToSelectedBreed
 
-
     private val _catsBreedList = MutableLiveData<List<Breed>>()
 
     val catsBreedList: LiveData<List<Breed>>
         get() = _catsBreedList
-
 
     fun getCatsBreedList() {
         if (catsBreedList.value != null) return
@@ -48,5 +45,4 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
     fun displayCatBreedDetailsComplete() {
         _navigateToSelectedBreed.value = null
     }
-
 }
