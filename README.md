@@ -10,7 +10,7 @@ Code Formatting is done with the gradle spotless plugin. other settings for the 
 ./gradlew spotlessApply
 ```
 
-A sample usage of the classes from the base project can be found [here](https://github.com/CottaCush/AndroidBaseProjectKotlin/app/src/main/java/com/cottacush/android/androidbaseprojectkt/sample).
+A sample usage of the classes from the base project can be found [here](https://github.com/CottaCush/AndroidBaseProjectKotlin/tree/project_setup/app/src/main/java/com/cottacush/android/androidbaseprojectkt/sample).
 
 
 ##  License
