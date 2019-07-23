@@ -19,20 +19,17 @@ class AccessTokenAuthenticator(
         synchronized(this) {
             val newToken = tokenProvider.token()
 
-            // Check if the request made was previously made as an authenticated request.
             if (response.request.url.queryParameter(AUTH_KEY) != null) {
 
                 val requestBuilder = response.request.newBuilder()
                 val urlBuilder = response.request.url.newBuilder().removeAllQueryParameters(AUTH_KEY)
 
-                // If the token has changed since the request was made, use the new token.
                 if (newToken != token) {
                     return requestBuilder.url(urlBuilder.addQueryParameter(AUTH_KEY, newToken).build()).build()
                 }
 
                 val updatedToken = tokenProvider.refreshToken() ?: return null
 
-                // Retry the request with the new token.
                 return requestBuilder.url(urlBuilder.addQueryParameter(AUTH_KEY, updatedToken).build()).build()
             }
         }
