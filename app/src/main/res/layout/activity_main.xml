@@ -8,6 +8,7 @@
     tools:context=".MainActivity">
 
     <androidx.appcompat.widget.Toolbar
+        app:title=""
         android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
         android:elevation="4dp"
         android:id="@+id/toolbar"

@@ -32,6 +32,7 @@ class BreedListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        mainActivity.setUpToolBar("Breed List", true)
         (mainActivity.applicationContext as App).component.inject(this)
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(BreedListViewModel::class.java)
         binding.viewModel = viewModel

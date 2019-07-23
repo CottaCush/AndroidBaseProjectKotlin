@@ -24,6 +24,7 @@ class BreedDetailsFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val args = BreedDetailsFragmentArgs.fromBundle(arguments!!)
+        mainActivity.setUpToolBar("Breed Details")
         binding.breed = args.breed
         binding.viewDetailsButton.setOnClickListener {
             mainActivity.viewUrl(args.breed.wikipediaUrl)

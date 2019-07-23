@@ -28,9 +28,10 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
 
 
     fun getCatsBreedList() {
+        if (catsBreedList.value != null) return
         coroutineScope.launch {
             _loadingStatus.value = LoadingStatus.Loading("Loading the cat breeds, Please wait... ")
-            when (val result = exampleRepository.getBreeds(20)) {
+            when (val result = exampleRepository.getBreeds(40)) {
                 is Result.Success -> {
                     _catsBreedList.value = result.data
                     _loadingStatus.postValue(LoadingStatus.Success)

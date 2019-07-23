@@ -8,8 +8,7 @@
     <fragment
         android:id="@+id/catsListFragment"
         android:name="com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListFragment"
-        android:label="Cat Breeds"
-        tools:layout="@layout/fragment_cat_lists" >
+        tools:layout="@layout/fragment_cat_lists">
         <action
             android:id="@+id/action_catsListFragment_to_breedDetailsFragment"
             app:destination="@id/breedDetailsFragment"
@@ -19,10 +18,9 @@
             app:popExitAnim="@anim/nav_default_pop_exit_anim" />
     </fragment>
     <fragment
-        tools:layout="@layout/fragment_breed_detail"
         android:id="@+id/breedDetailsFragment"
         android:name="com.cottacush.android.androidbaseprojectkt.sample.breeddetails.BreedDetailsFragment"
-        android:label="BreedDetailsFragment" >
+        tools:layout="@layout/fragment_breed_detail">
         <argument
             android:name="Breed"
             app:argType="com.cottacush.android.androidbaseprojectkt.sample.models.Breed" />

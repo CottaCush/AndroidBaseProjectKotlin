@@ -25,9 +25,20 @@ class MainActivity : AppCompatActivity(), LoadingCallback {
 
     private fun setUpNavigation() {
         setSupportActionBar(toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph)
     }
+
+
+    fun setUpToolBar(toolbarTitle: String, isRootPage: Boolean = false) {
+        supportActionBar!!.run {
+            setDisplayHomeAsUpEnabled(!isRootPage)
+            setHomeAsUpIndicator(if (!isRootPage) R.drawable.ic_arrow_back_white_24dp else 0)
+            toolbar.title = toolbarTitle
+        }
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
