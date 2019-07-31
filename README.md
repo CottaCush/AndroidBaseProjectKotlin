@@ -1,9 +1,9 @@
 ## AndroidBaseProjectKotlin
 
-A base project to fast track mobile development with the MVVM Architecture. It contains basic setup Network operations, DI and Architecture components. The project also include various utility classes and extensions. 
+A base project to fast track mobile development with the MVVM Architecture. It contains basic setup for Network operations, DI and Architecture components. The project also includes various utility classes and extensions. 
 
 ### Code Formatting
-Code Formatting is done with the gradle spotless plugin. other settings for the plugin can be configured in [spotless.gradle](spotless.gradle). to format code, run
+Code Formatting is done with the gradle spotless plugin. other settings for the plugin can be configured in [spotless.gradle](spotless.gradle). To format code, run
 
 
 ```gradle
