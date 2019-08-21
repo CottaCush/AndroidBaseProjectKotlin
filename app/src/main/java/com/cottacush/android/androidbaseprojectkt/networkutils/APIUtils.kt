@@ -18,9 +18,10 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
     // This else branch is specific to cotta-cush APIs
     else {
         val errorBody = response.errorBody()
+        val errorBodyString = errorBody.string()
         if (errorBody != null) {
             return Result.Error(
-                getErrorCode(errorBody), getErrorMessage(errorBody)
+                getErrorCode(errorBodyString), getErrorMessage(errorBodyString)
             )
         }
     }
@@ -28,9 +29,9 @@ fun <T : Any> getAPIResult(response: Response<T>): Result<T> {
     return Result.Error("${response.code()}", response.message())
 }
 
-fun getErrorMessage(responseBody: ResponseBody): String {
+fun getErrorMessage(responseBody: String): String {
     return try {
-        val jsonObject = JSONObject(responseBody.string())
+        val jsonObject = JSONObject(responseBody)
         jsonObject.getString("message").replace("_".toRegex(), " ")
     } catch (e: Exception) {
         Timber.e(e)
@@ -38,9 +39,9 @@ fun getErrorMessage(responseBody: ResponseBody): String {
     }
 }
 
-fun getErrorCode(errorBody: ResponseBody): String {
+fun getErrorCode(errorBody: String): String {
     return try {
-        val errorBodyJsonObject = JSONObject(errorBody.string())
+        val errorBodyJsonObject = JSONObject(errorBody)
         errorBodyJsonObject.getString("code")
     } catch (e: Exception) {
         Timber.e(e)
