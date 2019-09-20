@@ -78,6 +78,10 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:' + versions.retrofit
     implementation 'com.squareup.retrofit2:retrofit-mock:' + versions.retrofit
     implementation 'com.squareup.okhttp3:logging-interceptor:' + versions.okhttp
+
+    //room
+    implementation 'androidx.room:room-runtime:' + versions.room
+    kapt 'androidx.room:room-compiler:$version_room' + versions.room
 }
 
 apply from: '../spotless.gradle'

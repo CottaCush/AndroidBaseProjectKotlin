@@ -38,6 +38,9 @@ ext.versions = [
 
         //Network
         retrofit            : "2.6.0",
-        okhttp              : "4.0.1"
+        okhttp              : "4.0.1",
+
+        //room
+        room                : "2.0.0"
 ]
 
