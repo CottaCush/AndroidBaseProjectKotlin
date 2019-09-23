@@ -42,6 +42,7 @@ fun List<DatabaseBreedModel>.asDomainModel(): List<Breed> {
             origin = it.origin,
 
             socialNeeds = it.socialNeeds,
+
             strangerFriendly = it.strangerFriendly,
 
             temperament = it.temperament,

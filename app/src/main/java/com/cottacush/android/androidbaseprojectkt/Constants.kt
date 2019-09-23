@@ -6,4 +6,9 @@ class PrefKeys {
     }
 }
 
+class Utils{
+    companion object{
+        const val LIMIT = 40
+    }
+}
 class APIDataKeys
