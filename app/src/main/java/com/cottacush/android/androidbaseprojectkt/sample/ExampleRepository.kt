@@ -18,8 +18,7 @@ class ExampleRepository @Inject constructor(
     private val breedDatabase: BreedDatabase
 ) {
 
-    val breeds =  Transformations.map(breedDatabase.breedDao.getAllBreed()) {
-        Timber.d("Gotten it: ${it.asDomainModel()}")
+    val breeds = Transformations.map(breedDatabase.breedDao.getAllBreed()) {
         it.asDomainModel()
     }
 
@@ -28,14 +27,10 @@ class ExampleRepository @Inject constructor(
             try {
                 when (val result = getAPIResult(exampleApiService.getCatBreeds(limit))) {
                     is Result.Success -> {
-                        Timber.d("Success Called")
                         breedDatabase.breedDao.dropTable()
-                        Timber.d("About to insert: ${result.data.asDataBaseModel()}" )
                         breedDatabase.breedDao.insertAllBreed(*result.data.asDataBaseModel())
-
                     }
                     is Result.Error -> {
-                        Timber.d("Error called")
                         Result.Error(GENERIC_ERROR_CODE, result.errorMessage)
                     }
                 }
