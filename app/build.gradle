@@ -82,7 +82,7 @@ dependencies {
 
     //room
     implementation 'androidx.room:room-runtime:' + versions.room
-    kapt 'androidx.room:room-compiler:$version_room' + versions.room
+    kapt 'androidx.room:room-compiler:' + versions.room
 }
 
 apply from: '../spotless.gradle'

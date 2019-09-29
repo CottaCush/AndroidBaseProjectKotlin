@@ -8,8 +8,6 @@ import com.cottacush.android.androidbaseprojectkt.networkutils.LoadingStatus
 
 abstract class BaseViewModel() : ViewModel() {
 
-
-
     protected val _loadingStatus = MutableLiveData<LoadingStatus>()
 
     val loadingStatus: LiveData<LoadingStatus>

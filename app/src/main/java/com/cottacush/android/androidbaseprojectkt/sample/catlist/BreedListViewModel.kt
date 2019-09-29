@@ -1,6 +1,5 @@
 package com.cottacush.android.androidbaseprojectkt.sample.catlist
 
-import android.provider.SyncStateContract
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -22,10 +21,6 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
     val navigateToSelectedBreed: LiveData<Breed>
         get() = _navigateToSelectedBreed
 
-//    private val _catsBreedList = MutableLiveData<List<Breed>>()
-//
-//    val catsBreedList: List<Breed>
-//        get() = _catsBreedList
 
     init {
         viewModelScope.launch {
@@ -33,8 +28,8 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
         }
     }
 
-    fun getCatsBreedList() {
-      val catList  = exampleRepository.breed
+    fun getCatsBreedList() : LiveData<List<Breed>>{
+        return exampleRepository.breed
 
     }
 
