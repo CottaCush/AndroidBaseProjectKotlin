@@ -2,64 +2,44 @@ package com.cottacush.android.androidbaseprojectkt.sample
 
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import com.cottacush.android.androidbaseprojectkt.sample.models.DatabaseBreedModel
+//import com.cottacush.android.androidbaseprojectkt.sample.models.DatabaseBreedModel
 import com.cottacush.android.androidbaseprojectkt.sample.models.Weight
-
-
-data class NetWorkBreedContainer(val breed: List<NetworkBreedModel>)
+import com.google.gson.annotations.SerializedName
 
 data class NetworkBreedModel(
+    @SerializedName("id")
     val id: String,
-
+    @SerializedName("description")
     val description: String,
-
+    @SerializedName("life_span")
     val lifeSpan: String,
-
+    @SerializedName("name")
     val name: String,
-
+    @SerializedName("origin")
     val origin: String,
-
+    @SerializedName("social_needs")
     val socialNeeds: Int,
-
+    @SerializedName("stranger_friendly")
     val strangerFriendly: Int,
-
+    @SerializedName("temperament")
     val temperament: String,
-
+    @SerializedName("weight")
     val weight: Weight,
-
+    @SerializedName("wikipedia_url")
     val wikipediaUrl: String
 )
 
 
-fun NetWorkBreedContainer.asDomainModel(): List<Breed> {
-    return breed.map {
-        Breed(
-            id = it.id,
-
-            description = it.description,
-
-            lifeSpan = it.lifeSpan,
-
-            name = it.name,
-
-            origin = it.origin,
-
-            socialNeeds = it.socialNeeds,
-
-            strangerFriendly = it.strangerFriendly,
-
-            temperament = it.temperament,
-
-            weight = it.weight,
-
-            wikipediaUrl = it.wikipediaUrl
-
-        )
-    }
+fun NetworkBreedModel.asDomainModel(): Breed {
+    //TODO further manipulation before the transformation?
+    return Breed(
+        id, description, lifeSpan, name, origin, socialNeeds,
+        strangerFriendly, temperament, weight, wikipediaUrl
+    )
 }
 
-
-fun NetWorkBreedContainer.asDatabaseModel(): Array<DatabaseBreedModel> {
-    return breed.map {
+fun List<NetworkBreedModel>.asDataBaseModel(): Array<DatabaseBreedModel> {
+    return map {
         DatabaseBreedModel(
             id = it.id,
 
@@ -80,7 +60,9 @@ fun NetWorkBreedContainer.asDatabaseModel(): Array<DatabaseBreedModel> {
             weight = it.weight,
 
             wikipediaUrl = it.wikipediaUrl
+
         )
     }.toTypedArray()
 }
+
 
