@@ -1,10 +1,10 @@
 package com.cottacush.android.androidbaseprojectkt.sample
 
+import android.os.Parcelable
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import com.cottacush.android.androidbaseprojectkt.sample.models.DatabaseBreedModel
-//import com.cottacush.android.androidbaseprojectkt.sample.models.DatabaseBreedModel
-import com.cottacush.android.androidbaseprojectkt.sample.models.Weight
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
 data class NetworkBreedModel(
     @SerializedName("id")
@@ -28,6 +28,14 @@ data class NetworkBreedModel(
     @SerializedName("wikipedia_url")
     val wikipediaUrl: String
 )
+@Parcelize
+data class Weight(
+    @SerializedName("imperial")
+    val imperial: String,
+    @SerializedName("metric")
+    val metric: String
+) : Parcelable
+
 
 
 fun NetworkBreedModel.asDomainModel(): Breed {

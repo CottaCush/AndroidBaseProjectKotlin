@@ -3,6 +3,7 @@ package com.cottacush.android.androidbaseprojectkt.sample.models
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverter
+import com.cottacush.android.androidbaseprojectkt.sample.Weight
 import com.google.gson.Gson
 
 

@@ -22,7 +22,8 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
 
     init {
         viewModelScope.launch {
-            //TODO don't refresh every time. schedule refresh with workManager... or only when there is network
+            //TODO don't refresh every time. schedule refresh with workManager...
+            // only when there is network. The refresh strategy could also be more complex.
             exampleRepository.refreshBreeds(Utils.LIMIT)
         }
     }

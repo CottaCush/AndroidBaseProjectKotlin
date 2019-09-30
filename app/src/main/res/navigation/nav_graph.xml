@@ -25,9 +25,4 @@
             android:name="Breed"
             app:argType="com.cottacush.android.androidbaseprojectkt.sample.models.Breed" />
     </fragment>
-    <fragment
-        android:id="@+id/roomDemoFragment"
-        android:name="com.cottacush.android.androidbaseprojectkt.sample.temp_room.RoomDemoFragment"
-        android:label="fragment_room_demo"
-        tools:layout="@layout/fragment_room_demo" />
 </navigation>
