@@ -1,5 +1,8 @@
 package com.cottacush.android.androidbaseprojectkt.di
 
+import android.os.Build
+import androidx.work.Constraints
+import androidx.work.NetworkType
 import com.cottacush.android.androidbaseprojectkt.BuildConfig
 import com.cottacush.android.androidbaseprojectkt.auth.*
 import com.cottacush.android.androidbaseprojectkt.sample.apis.AccessTokenProviderImpl
@@ -60,6 +63,20 @@ class APIServiceModule {
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
             .create(ExampleApiService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideWorkManagerConstraint(): Constraints {
+        return Constraints.Builder()
+            .setRequiredNetworkType(NetworkType.UNMETERED)
+            .setRequiresBatteryNotLow(true)
+            .setRequiresCharging(true)
+            .apply {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    setRequiresDeviceIdle(true)
+                }
+            }.build()
     }
 
     @Provides

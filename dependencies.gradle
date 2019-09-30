@@ -41,6 +41,9 @@ ext.versions = [
         okhttp              : "4.0.1",
 
         //room
-        room                : "2.0.0"
+        room                : "2.0.0",
+
+        //work manager
+        work                : "1.0.0-alpha11"
 ]
 

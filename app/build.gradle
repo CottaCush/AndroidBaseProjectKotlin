@@ -84,6 +84,9 @@ dependencies {
     //room
     implementation 'androidx.room:room-runtime:' + versions.room
     kapt 'androidx.room:room-compiler:' + versions.room
+
+    //workmanager
+    implementation 'android.arch.work:work-runtime-ktx:' + versions.work
 }
 
 apply from: '../spotless.gradle'
