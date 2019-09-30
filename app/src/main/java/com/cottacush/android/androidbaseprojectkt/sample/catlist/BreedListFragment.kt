@@ -37,7 +37,7 @@ class BreedListFragment : BaseFragment() {
         (mainActivity.applicationContext as App).component.inject(this)
         val viewModel = ViewModelProviders.of(this, viewModelFactory).get(BreedListViewModel::class.java)
         binding.viewModel = viewModel
-        viewModel.getCatsBreedList()
+
         binding.breedsRecyclerView.adapter = BreedListAdapter {
             viewModel.displayCatBreedDetails(it)
         }

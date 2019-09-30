@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel" />
@@ -34,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            app:catBreedsList="@{viewModel.catsBreedList}"
+            app:catBreedsList="@{viewModel.breeds}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

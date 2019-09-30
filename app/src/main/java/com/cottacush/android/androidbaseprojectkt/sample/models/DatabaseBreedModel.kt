@@ -2,6 +2,9 @@ package com.cottacush.android.androidbaseprojectkt.sample.models
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import com.cottacush.android.androidbaseprojectkt.sample.Weight
+import com.google.gson.Gson
 
 
 @Entity
@@ -25,8 +28,22 @@ class DatabaseBreedModel(
 
     val weight: Weight,
 
-    val wikipediaUrl: String
+    val wikipediaUrl: String?
 )
+
+class WeightConverter {
+    private val gson: Gson = Gson()
+
+    @TypeConverter
+    fun toWeight(weight: String): Weight {
+        return gson.fromJson(weight, Weight::class.java)
+    }
+
+    @TypeConverter
+    fun toString(weight: Weight): String {
+        return gson.toJson(weight)
+    }
+}
 
 fun List<DatabaseBreedModel>.asDomainModel(): List<Breed> {
     return map {
@@ -53,5 +70,4 @@ fun List<DatabaseBreedModel>.asDomainModel(): List<Breed> {
 
         )
     }
-
 }

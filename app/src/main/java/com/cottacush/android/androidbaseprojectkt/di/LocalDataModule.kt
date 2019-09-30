@@ -27,10 +27,8 @@ class LocalDataModule {
 
     @Provides
     @Singleton
-    fun provideBreedDatabase(app: Application) : BreedDatabase{
-        return Room.databaseBuilder(app,
-            BreedDatabase::class.java,
-            "breeds"
-        ).build()
-    }
+    fun provideBreedDatabase(app: Application) : BreedDatabase = Room.databaseBuilder(app,
+        BreedDatabase::class.java,
+        "breeds-database.db"
+    ).build()
 }
