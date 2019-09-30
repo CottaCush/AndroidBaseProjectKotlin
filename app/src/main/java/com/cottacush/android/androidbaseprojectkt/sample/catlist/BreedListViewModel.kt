@@ -2,41 +2,32 @@ package com.cottacush.android.androidbaseprojectkt.sample.catlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.viewModelScope
+import com.cottacush.android.androidbaseprojectkt.Utils
 import com.cottacush.android.androidbaseprojectkt.base.BaseViewModel
-import com.cottacush.android.androidbaseprojectkt.networkutils.LoadingStatus
 import com.cottacush.android.androidbaseprojectkt.sample.ExampleRepository
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
-import com.cottacush.android.androidbaseprojectkt.networkutils.Result
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class BreedListViewModel @Inject constructor(private val exampleRepository: ExampleRepository) :
-    BaseViewModel(Dispatchers.Main) {
+    BaseViewModel() {
+    val breeds = exampleRepository.breeds
 
     private val _navigateToSelectedBreed = MutableLiveData<Breed>()
 
     val navigateToSelectedBreed: LiveData<Breed>
         get() = _navigateToSelectedBreed
 
-    private val _catsBreedList = MutableLiveData<List<Breed>>()
 
-    val catsBreedList: LiveData<List<Breed>>
-        get() = _catsBreedList
-
-    fun getCatsBreedList() {
-        if (catsBreedList.value != null) return
-        coroutineScope.launch {
-            _loadingStatus.value = LoadingStatus.Loading("Loading the cat breeds, Please wait... ")
-            when (val result = exampleRepository.getBreeds(40)) {
-                is Result.Success -> {
-                    _catsBreedList.value = result.data
-                    _loadingStatus.postValue(LoadingStatus.Success)
-                }
-                is Result.Error -> _loadingStatus.value = LoadingStatus.Error(result.errorCode, result.errorMessage)
-            }
+    init {
+        viewModelScope.launch {
+            //TODO don't refresh every time. schedule refresh with workManager...
+            // only when there is network. The refresh strategy could also be more complex.
+            exampleRepository.refreshBreeds(Utils.LIMIT)
         }
     }
+
 
     fun displayCatBreedDetails(breed: Breed) {
         _navigateToSelectedBreed.value = breed

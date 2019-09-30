@@ -38,6 +38,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     //tests
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:' + versions.junit
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
@@ -50,6 +51,7 @@ dependencies {
 
     // ViewModel and LiveData
     implementation 'androidx.lifecycle:lifecycle-extensions:' + versions.lifecycle
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:' + versions.lifecycle
 
     // Navigation
     implementation 'android.arch.navigation:navigation-fragment-ktx:' + versions.navigation
@@ -78,6 +80,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:' + versions.retrofit
     implementation 'com.squareup.retrofit2:retrofit-mock:' + versions.retrofit
     implementation 'com.squareup.okhttp3:logging-interceptor:' + versions.okhttp
+
+    //room
+    implementation 'androidx.room:room-runtime:' + versions.room
+    kapt 'androidx.room:room-compiler:' + versions.room
+
+    //workmanager
+    implementation 'android.arch.work:work-runtime-ktx:' + versions.work
 }
 
 apply from: '../spotless.gradle'

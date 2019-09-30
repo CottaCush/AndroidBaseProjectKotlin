@@ -28,7 +28,9 @@ class BreedDetailsFragment : BaseFragment() {
         mainActivity.setUpToolBar("Breed Details")
         binding.breed = args.breed
         binding.viewDetailsButton.setOnClickListener {
-            mainActivity.viewUrl(args.breed.wikipediaUrl)
+            args.breed.wikipediaUrl?.let {
+                mainActivity.viewUrl(it)
+            }
         }
     }
 }
