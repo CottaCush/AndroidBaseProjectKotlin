@@ -2,6 +2,7 @@ package com.cottacush.android.androidbaseprojectkt.di
 
 import android.app.Application
 import com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListFragment
+import com.cottacush.android.androidbaseprojectkt.workmanager.RefreshDataWork
 import dagger.BindsInstance
 import dagger.Component
 import javax.inject.Singleton
@@ -11,6 +12,7 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(target: BreedListFragment)
+    fun inject(target: RefreshDataWork)
 
     @Component.Builder
     interface Builder {

@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel" />
@@ -22,7 +23,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginEnd="16dp"
             android:gravity="center"
-            android:text="Below are the list of common cat breeds. Click on any of the breeds to view more detailed information about the breed"
+            android:text="@string/breed_list_info"
             android:textColor="@android:color/black"
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -34,7 +35,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="20dp"
-            app:catBreedsList="@{viewModel.catsBreedList}"
+            app:catBreedsList="@{viewModel.breeds}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
