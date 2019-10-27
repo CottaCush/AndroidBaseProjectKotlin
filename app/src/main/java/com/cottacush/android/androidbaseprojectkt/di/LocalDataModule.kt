@@ -24,10 +24,9 @@ class LocalDataModule {
     fun provideGlobalSharedPreference(app: Application): SharedPreferences =
         app.getSharedPreferences("global_shared_prefs", Context.MODE_PRIVATE)
 
-
     @Provides
     @Singleton
-    fun provideBreedDatabase(app: Application) : BreedDatabase = Room.databaseBuilder(app,
+    fun provideBreedDatabase(app: Application): BreedDatabase = Room.databaseBuilder(app,
         BreedDatabase::class.java,
         "breeds-database.db"
     ).build()

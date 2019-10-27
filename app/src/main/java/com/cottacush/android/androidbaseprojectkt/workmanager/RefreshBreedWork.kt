@@ -22,15 +22,12 @@ class RefreshDataWork(appContext: Context, params: WorkerParameters) :
         (appContext as App).component.inject(this)
     }
 
-
     override suspend fun doWork(): Payload {
-
         return try {
-             repository.refreshBreeds(40)
+            repository.refreshBreeds(40)
             Payload(Result.SUCCESS)
         } catch (exception: HttpException) {
             Payload(Result.RETRY)
         }
     }
-
 }
