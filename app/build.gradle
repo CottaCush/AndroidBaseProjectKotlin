@@ -43,15 +43,11 @@ dependencies {
     testImplementation "org.mockito:mockito-core:" + versions.mockitoVersion
     testImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
-
-
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
 
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
     androidTestImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2'
-
-
 
     // Kotlin
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:' + versions.kotlin

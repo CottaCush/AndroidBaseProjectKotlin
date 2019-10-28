@@ -51,7 +51,6 @@ class BreedListViewModelTest {
 
     @Test
     fun testFetchBreedShouldReturnBreed() {
-
         val newBreed = mock<Breed>()
         runBlocking {
             launch(Dispatchers.Main) {

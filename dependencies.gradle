@@ -12,6 +12,7 @@ ext.versions = [
         espressoCore        : '3.2.0',
         coreTestingVersion  : '2.0.0',
         coroutinesCore      : '1.2.1',
+        coroutinesTest      : '1.3.2',
 
         //mockito
         mockitoVersion      : "2.25.0",
