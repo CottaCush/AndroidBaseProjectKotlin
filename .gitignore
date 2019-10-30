@@ -85,6 +85,7 @@ obj/
 .idea/uiDesigner.xml
 .idea/codeStyles/Project.xml
 .idea/codeStyles/codeStyleConfig.xml
+.idea/runConfigurations.xml
 
 # OS-specific files
 .DS_Store
