@@ -14,7 +14,6 @@ import java.util.concurrent.TimeUnit
 
 class App : Application() {
 
-
     private var applicationScope = CoroutineScope(Dispatchers.Default)
     lateinit var component: AppComponent
 
@@ -41,7 +40,7 @@ class App : Application() {
             .setRequiresBatteryNotLow(true)
             .setRequiresCharging(true)
             .apply {
-                if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     setRequiresDeviceIdle(true)
                 }
             }.build()
@@ -58,5 +57,4 @@ class App : Application() {
             repeatingRequest
         )
     }
-
 }
