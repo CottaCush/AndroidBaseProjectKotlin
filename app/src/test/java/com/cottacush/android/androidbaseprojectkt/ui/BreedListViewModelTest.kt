@@ -3,7 +3,7 @@ package com.cottacush.android.androidbaseprojectkt.ui
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.cottacush.android.androidbaseprojectkt.sample.ExampleRepository
-import com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel
+import com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist.BreedListViewModel
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNull

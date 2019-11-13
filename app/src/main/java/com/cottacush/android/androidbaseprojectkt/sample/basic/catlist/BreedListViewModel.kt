@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.sample.catlist
+package com.cottacush.android.androidbaseprojectkt.sample.basic.catlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -3,26 +3,53 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/catsListFragment">
+    app:startDestination="@id/landingPageFragment">
 
     <fragment
-        android:id="@+id/catsListFragment"
-        android:name="com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListFragment"
-        tools:layout="@layout/fragment_cat_lists">
+        android:id="@+id/breedsListFragment"
+        android:name="com.cottacush.android.androidbaseprojectkt.sample.basic.catlist.BreedListFragment"
+        tools:layout="@layout/fragment_breeds_list">
         <action
-            android:id="@+id/action_catsListFragment_to_breedDetailsFragment"
-            app:destination="@id/breedDetailsFragment"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"
-            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+            android:id="@+id/action_breedsListFragment_to_breedDetailsFragment"
+            app:destination="@id/breedDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/breedDetailsFragment"
-        android:name="com.cottacush.android.androidbaseprojectkt.sample.breeddetails.BreedDetailsFragment"
+        android:name="com.cottacush.android.androidbaseprojectkt.sample.basic.breeddetails.BreedDetailsFragment"
         tools:layout="@layout/fragment_breed_detail">
         <argument
             android:name="Breed"
             app:argType="com.cottacush.android.androidbaseprojectkt.sample.models.Breed" />
+    </fragment>
+    <fragment
+        android:id="@+id/landingPageFragment"
+        android:name="com.cottacush.android.androidbaseprojectkt.sample.LandingPageFragment"
+        android:label="fragment_landing_page"
+        tools:layout="@layout/fragment_landing_page" >
+        <action
+            android:id="@+id/action_landingPageFragment_to_advancedBreedListFragment"
+            app:destination="@id/advancedBreedListFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_breedsListFragment"
+            app:destination="@id/breedsListFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_advanced_breeds"
+        android:id="@+id/advancedBreedListFragment"
+        android:name="com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist.AdvancedBreedListFragment"
+        android:label="AdvancedBreedListFragment" >
+        <action
+            android:id="@+id/action_advancedBreedListFragment_to_advancedBreedDetailsFragment"
+            app:destination="@id/advancedBreedDetailsFragment" />
+    </fragment>
+    <fragment
+        tools:layout="@layout/fragment_advanced_breed_detail"
+        android:id="@+id/advancedBreedDetailsFragment"
+        android:name="com.cottacush.android.androidbaseprojectkt.sample.advanced.breeddetails.AdvancedBreedDetailsFragment"
+        android:label="AdvancedBreedDetailsFragment" >
+        <argument
+            android:name="Breed"
+            app:argType="com.cottacush.android.androidbaseprojectkt.sample.models.Breed" />
+
     </fragment>
 </navigation>

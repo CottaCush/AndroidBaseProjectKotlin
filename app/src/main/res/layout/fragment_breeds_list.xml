@@ -8,7 +8,7 @@
 
         <variable
             name="viewModel"
-            type="com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel" />
+            type="com.cottacush.android.androidbaseprojectkt.sample.basic.catlist.BreedListViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

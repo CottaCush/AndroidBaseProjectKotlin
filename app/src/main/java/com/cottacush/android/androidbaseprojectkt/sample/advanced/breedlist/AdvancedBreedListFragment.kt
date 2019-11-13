@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.sample.catlist
+package com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,23 +10,24 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.cottacush.android.androidbaseprojectkt.App
 import com.cottacush.android.androidbaseprojectkt.base.BaseFragment
-import com.cottacush.android.androidbaseprojectkt.databinding.FragmentCatListsBinding
+import com.cottacush.android.androidbaseprojectkt.databinding.FragmentAdvancedBreedsBinding
+import com.cottacush.android.androidbaseprojectkt.databinding.FragmentBreedsListBinding
 import com.cottacush.android.androidbaseprojectkt.networkutils.LoadingStatus
 import javax.inject.Inject
 
-class BreedListFragment : BaseFragment() {
+class AdvancedBreedListFragment : BaseFragment() {
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
-    lateinit var binding: FragmentCatListsBinding
+    lateinit var binding: FragmentAdvancedBreedsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentCatListsBinding.inflate(inflater)
+        binding = FragmentAdvancedBreedsBinding.inflate(inflater)
         binding.lifecycleOwner = this
         return binding.root
     }
@@ -35,17 +36,17 @@ class BreedListFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
         mainActivity.setUpToolBar("Breed List", true)
         (mainActivity.applicationContext as App).component.inject(this)
-        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(BreedListViewModel::class.java)
+        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(AdvancedBreedListViewModel::class.java)
         binding.viewModel = viewModel
-
-        binding.breedsRecyclerView.adapter = BreedListAdapter {
+        binding.breedsRecyclerView.adapter = AdvancedBreedListAdapter {
             viewModel.displayCatBreedDetails(it)
         }
 
         viewModel.navigateToSelectedBreed.observe(this, Observer {
             if (it != null) {
                 this.findNavController().navigate(
-                    BreedListFragmentDirections.actionCatsListFragmentToBreedDetailsFragment(it)
+                    AdvancedBreedListFragmentDirections
+                        .actionAdvancedBreedListFragmentToAdvancedBreedDetailsFragment(it)
                 )
                 viewModel.displayCatBreedDetailsComplete()
             }

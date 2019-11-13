@@ -1,8 +1,8 @@
-package com.cottacush.android.androidbaseprojectkt.sample
+package com.cottacush.android.androidbaseprojectkt.sample.basic
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListAdapter
+import com.cottacush.android.androidbaseprojectkt.sample.basic.catlist.BreedListAdapter
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import timber.log.Timber
 
