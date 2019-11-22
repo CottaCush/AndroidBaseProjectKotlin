@@ -45,6 +45,34 @@ dependencies {
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
 
+
+    // Dependencies for local unit tests
+
+    testImplementation 'androidx.test:core-ktx:' + versions.androidxCore
+    testImplementation 'org.robolectric:robolectric:' + versions.roboelectric
+    testImplementation 'androidx.test.ext:junit-ktx:' + versions. androidXTestExtKotlinRunner
+
+
+    // AndroidX Test - Instrumented testing
+    androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
+    androidTestImplementation 'androidx.test.ext:junit:' + versions. androidXTestExtKotlinRunner
+    androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:' + versions.espressoCore
+
+    androidTestImplementation 'junit:junit:' + versions.junit
+    androidTestImplementation 'org.mockito:mockito-core:' + versions.mockito
+    androidTestImplementation 'com.linkedin.dexmaker:dexmaker-mockito:' + versions.dexMaker
+
+
+    // Dependencies for Android instrumented unit tests
+  //  androidTestImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutines
+
+    // Testing code should not be included in the main code.
+    // Once https://issuetracker.google.com/128612536 is fixed this can be fixed.
+
+    implementation ("androidx.fragment:fragment-testing:1.1.0-beta01", {exclude group: 'androidx.test', module: 'core'} )
+    implementation 'androidx.test:core:' + versions.androidxCore
+
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
     androidTestImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
@@ -69,7 +97,7 @@ dependencies {
 
 
     // Android X
-    implementation 'androidx.core:core-ktx:' + versions.androidxCore
+    implementation 'androidx.core:core-ktx:' + versions.androidXCore
     implementation 'androidx.recyclerview:recyclerview:' + versions.androidxRecyclerView
     implementation 'androidx.browser:browser:' + versions.androidxBrowser
 
