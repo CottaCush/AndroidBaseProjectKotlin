@@ -21,9 +21,8 @@ class BreedDatabaseTest {
 
     @Rule
     val rule = InstantTaskExecutorRule()
-
     @Mock
-   lateinit var   observer : Observer<List<DatabaseBreedModel>>
+    private lateinit var observer : Observer<List<DatabaseBreedModel>>
 
     private lateinit var breedDatabase : BreedDatabase
     private lateinit var breedDao: BreedDao
@@ -65,8 +64,6 @@ class BreedDatabaseTest {
         breedDao.insertAllBreed(breed)
         breedDao.dropTable()
     }
-
-
 
 
 }
