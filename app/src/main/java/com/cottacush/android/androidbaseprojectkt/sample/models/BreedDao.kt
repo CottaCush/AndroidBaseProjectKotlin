@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface BreedDao {
+ interface BreedDao {
 
     @Query("SELECT * FROM databasebreedmodel")
     fun getAllBreed(): LiveData<List<DatabaseBreedModel>>
