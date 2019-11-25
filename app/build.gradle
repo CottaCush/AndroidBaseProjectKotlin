@@ -6,6 +6,11 @@ apply plugin: 'androidx.navigation.safeargs'
 apply plugin: 'kotlin-kapt'
 
 android {
+    useLibrary 'android.test.runner'
+
+    useLibrary 'android.test.base'
+    useLibrary 'android.test.mock'
+
     compileSdkVersion versions.compileSdkVersion
     dataBinding {
         enabled = true

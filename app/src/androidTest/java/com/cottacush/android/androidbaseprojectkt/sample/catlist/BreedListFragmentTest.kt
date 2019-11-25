@@ -6,6 +6,8 @@ import androidx.fragment.app.testing.launchFragmentInContainer
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
 import androidx.test.espresso.contrib.RecyclerViewActions
@@ -31,7 +33,11 @@ import org.mockito.Mockito.verify
 @RunWith(AndroidJUnit4::class)
 class BreedListFragmentTest {
 
-    private val database = mock(BreedDatabase::class.java)
+    private val database = Room
+        .inMemoryDatabaseBuilder(
+            ApplicationProvider.getApplicationContext(),
+            BreedDatabase::class.java
+        ).build()
     private val dataBaseBreed = mock(DatabaseBreedModel::class.java)
     private val list = listOf(dataBaseBreed)
     private val model = list.asDomainModel()[0]
