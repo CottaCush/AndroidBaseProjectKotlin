@@ -18,6 +18,3 @@ interface BreedDao {
     @Query("DELETE FROM databasebreedmodel")
     fun dropTable()
 }
-
-
-

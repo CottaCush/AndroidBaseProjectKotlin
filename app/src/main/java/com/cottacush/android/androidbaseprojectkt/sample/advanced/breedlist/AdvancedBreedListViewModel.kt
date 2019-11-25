@@ -19,15 +19,13 @@ class AdvancedBreedListViewModel @Inject constructor(private val exampleReposito
     val navigateToSelectedBreed: LiveData<Breed>
         get() = _navigateToSelectedBreed
 
-
     init {
         viewModelScope.launch {
-            //TODO don't refresh every time. schedule refresh with workManager...
+            // TODO don't refresh every time. schedule refresh with workManager...
             // only when there is network. The refresh strategy could also be more complex.
             exampleRepository.refreshBreeds(Utils.LIMIT)
         }
     }
-
 
     fun displayCatBreedDetails(breed: Breed) {
         _navigateToSelectedBreed.value = breed

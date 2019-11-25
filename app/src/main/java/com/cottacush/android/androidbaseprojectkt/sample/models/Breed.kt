@@ -1,7 +1,6 @@
 package com.cottacush.android.androidbaseprojectkt.sample.models
 import android.os.Parcelable
 import com.cottacush.android.androidbaseprojectkt.sample.Weight
-import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize

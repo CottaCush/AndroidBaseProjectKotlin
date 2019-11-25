@@ -13,7 +13,8 @@ import kotlinx.android.synthetic.main.fragment_landing_page.*
 class LandingPageFragment : BaseFragment() {
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_landing_page, container, false)

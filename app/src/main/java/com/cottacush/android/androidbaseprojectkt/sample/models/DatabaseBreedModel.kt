@@ -6,7 +6,6 @@ import androidx.room.TypeConverter
 import com.cottacush.android.androidbaseprojectkt.sample.Weight
 import com.google.gson.Gson
 
-
 @Entity
 class DatabaseBreedModel(
     @PrimaryKey

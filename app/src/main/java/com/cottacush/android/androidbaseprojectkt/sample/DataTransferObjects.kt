@@ -36,10 +36,8 @@ data class Weight(
     val metric: String
 ) : Parcelable
 
-
-
 fun NetworkBreedModel.asDomainModel(): Breed {
-    //TODO further manipulation before the transformation?
+    // TODO further manipulation before the transformation?
     return Breed(
         id, description, lifeSpan, name, origin, socialNeeds,
         strangerFriendly, temperament, weight, wikipediaUrl
@@ -72,5 +70,3 @@ fun List<NetworkBreedModel>.asDataBaseModel(): Array<DatabaseBreedModel> {
         )
     }.toTypedArray()
 }
-
-
