@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.cottacush.android.androidbaseprojectkt.App
+import com.cottacush.android.androidbaseprojectkt.R
 import com.cottacush.android.androidbaseprojectkt.base.BaseFragment
 import com.cottacush.android.androidbaseprojectkt.databinding.FragmentBreedsListBinding
 import com.cottacush.android.androidbaseprojectkt.networkutils.LoadingStatus
@@ -33,9 +34,10 @@ class BreedListFragment : BaseFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        mainActivity.setUpToolBar("Breed List", true)
+        mainActivity.setUpToolBar(getString(R.string.breed_list))
         (mainActivity.applicationContext as App).component.inject(this)
-        val viewModel = ViewModelProviders.of(this, viewModelFactory).get(BreedListViewModel::class.java)
+        val viewModel =
+            ViewModelProviders.of(this, viewModelFactory).get(BreedListViewModel::class.java)
         binding.viewModel = viewModel
         binding.breedsRecyclerView.adapter = BreedListAdapter {
             viewModel.displayCatBreedDetails(it)
@@ -57,7 +59,5 @@ class BreedListFragment : BaseFragment() {
                 is LoadingStatus.Error -> mainActivity.showError(it.errorMessage)
             }
         })
-
-
     }
 }

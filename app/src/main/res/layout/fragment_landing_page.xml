@@ -18,7 +18,7 @@
         android:padding="16dp"
         android:text="@string/basic_sample"
         app:cornerRadius="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/advanceSampleButton"
+        app:layout_constraintBottom_toTopOf="@+id/advancedSampleButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         app:layout_constraintVertical_chainStyle="packed" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/advanceSampleButton"
+        android:id="@+id/advancedSampleButton"
         style="@style/Widget.MaterialComponents.Button.Icon"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

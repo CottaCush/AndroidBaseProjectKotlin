@@ -27,11 +27,11 @@
         android:label="fragment_landing_page"
         tools:layout="@layout/fragment_landing_page" >
         <action
-            android:id="@+id/action_landingPageFragment_to_advancedBreedListFragment"
-            app:destination="@id/advancedBreedListFragment" />
-        <action
             android:id="@+id/action_landingPageFragment_to_breedsListFragment"
             app:destination="@id/breedsListFragment" />
+        <action
+            android:id="@+id/action_landingPageFragment_to_advancedBreedListFragment"
+            app:destination="@id/advancedBreedListFragment" />
     </fragment>
     <fragment
         tools:layout="@layout/fragment_advanced_breeds"

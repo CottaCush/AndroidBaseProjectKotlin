@@ -14,7 +14,7 @@ interface AppComponent {
 
     fun inject(target: BreedListFragment)
     fun inject(target: RefreshDataWork)
-   fun inject(target: AdvancedBreedListFragment)
+    fun inject(target: AdvancedBreedListFragment)
 
     @Component.Builder
     interface Builder {

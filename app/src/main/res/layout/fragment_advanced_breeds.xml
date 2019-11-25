@@ -39,7 +39,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/header_message"
-            app:catBreedsList="@{viewModel.breeds}"
+            app:advancedCatBreedsList="@{viewModel.breeds}"
             tools:listitem="@layout/item_cat_list" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
