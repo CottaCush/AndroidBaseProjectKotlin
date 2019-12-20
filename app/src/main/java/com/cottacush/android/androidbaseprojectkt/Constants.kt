@@ -6,8 +6,8 @@ class PrefKeys {
     }
 }
 
-class Utils{
-    companion object{
+class Utils {
+    companion object {
         const val LIMIT = 40
     }
 }

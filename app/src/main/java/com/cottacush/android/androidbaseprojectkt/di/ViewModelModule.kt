@@ -2,7 +2,8 @@ package com.cottacush.android.androidbaseprojectkt.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.cottacush.android.androidbaseprojectkt.sample.catlist.BreedListViewModel
+import com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist.AdvancedBreedListViewModel
+import com.cottacush.android.androidbaseprojectkt.sample.basic.catlist.BreedListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -17,7 +18,12 @@ abstract class ViewModelModule {
     @Binds
     @IntoMap
     @ViewModelKey(BreedListViewModel::class)
-    abstract fun bindContactSourcesViewModel(viewModel: BreedListViewModel): ViewModel
+    abstract fun bindBreedListViewModel(viewModel: BreedListViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AdvancedBreedListViewModel::class)
+    abstract fun bindAdvancedBreedListViewModel(viewModel: AdvancedBreedListViewModel): ViewModel
 
     // TODO Add other ViewModels.
 }

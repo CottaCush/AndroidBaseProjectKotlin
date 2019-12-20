@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.sample.catlist
+package com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class BreedListViewModel @Inject constructor(private val exampleRepository: ExampleRepository) :
+class AdvancedBreedListViewModel @Inject constructor(private val exampleRepository: ExampleRepository) :
     BaseViewModel() {
     val breeds = exampleRepository.breeds
 
@@ -19,15 +19,13 @@ class BreedListViewModel @Inject constructor(private val exampleRepository: Exam
     val navigateToSelectedBreed: LiveData<Breed>
         get() = _navigateToSelectedBreed
 
-
     init {
         viewModelScope.launch {
-            //TODO don't refresh every time. schedule refresh with workManager...
+            // TODO don't refresh every time. schedule refresh with workManager...
             // only when there is network. The refresh strategy could also be more complex.
             exampleRepository.refreshBreeds(Utils.LIMIT)
         }
     }
-
 
     fun displayCatBreedDetails(breed: Breed) {
         _navigateToSelectedBreed.value = breed

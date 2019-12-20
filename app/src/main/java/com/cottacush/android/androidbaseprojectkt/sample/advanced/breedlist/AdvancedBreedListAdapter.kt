@@ -1,4 +1,4 @@
-package com.cottacush.android.androidbaseprojectkt.sample.catlist
+package com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -9,9 +9,9 @@ import com.cottacush.android.androidbaseprojectkt.R
 import com.cottacush.android.androidbaseprojectkt.databinding.ItemCatListBinding
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 
-class BreedListAdapter(
+class AdvancedBreedListAdapter(
     val breedClickListener: (Breed) -> Unit
-) : ListAdapter<Breed, BreedListAdapter.CatBreedsViewHolder>(DiffCallback) {
+) : ListAdapter<Breed, AdvancedBreedListAdapter.CatBreedsViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CatBreedsViewHolder {
         return CatBreedsViewHolder(

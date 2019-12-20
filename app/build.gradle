@@ -40,7 +40,7 @@ dependencies {
     //tests
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:' + versions.junit
-    testImplementation "org.mockito:mockito-core:" + versions.mockitoVersion
+    testImplementation "org.mockito:mockito-inline:" + versions.mockitoVersion
     testImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest

@@ -4,4 +4,10 @@
     <string name="ok">OK</string>
     <string name="breed_list_info">Below are the list of common cat breeds. Click on any of the breeds to view more detailed information about the breed</string>
 
+    <string name="basic_sample">Basic Sample</string>
+    <string name="advanced_sample">Advanced Sample</string>
+    <string name="breed_details_advanced">Breed Details Advanced</string>
+    <string name="cat_breeds">Cat Breeds</string>
+    <string name="breed_list">Breed List</string>
+
 </resources>
