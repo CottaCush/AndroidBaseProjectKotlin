@@ -18,7 +18,6 @@ package com.cottacush.android.androidbaseprojectkt.ui
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.cottacush.android.androidbaseprojectkt.sample.ExampleRepository
-import com.cottacush.android.androidbaseprojectkt.sample.advanced.breedlist.BreedListViewModel
 import com.cottacush.android.androidbaseprojectkt.sample.models.Breed
 import junit.framework.Assert.assertEquals
 import junit.framework.Assert.assertNull
@@ -27,6 +26,7 @@ import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.setMain
 
 import com.cottacush.android.androidbaseprojectkt.mock
+import com.cottacush.android.androidbaseprojectkt.sample.basic.catlist.BreedListViewModel
 import org.junit.*
 import org.junit.runner.RunWith
 import org.junit.runners.JUnit4

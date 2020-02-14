@@ -44,6 +44,8 @@ dependencies {
     testImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
+    testImplementation 'com.google.truth:truth:' + versions.truthTest
+
 
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
     androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
