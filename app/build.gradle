@@ -43,11 +43,28 @@ dependencies {
     testImplementation "org.mockito:mockito-inline:" + versions.mockitoVersion
     testImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
     testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:' + versions.coroutines
-    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesTest
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:' + versions.coroutinesCore
+    testImplementation 'com.google.truth:truth:' + versions.truthTest
+
+
+    // Dependencies for Android instrumented unit tests
+    androidTestImplementation "org.mockito:mockito-core:" + versions.mockitoVersion
+
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:" + versions.dexMakerVersion
+
+    androidTestImplementation "androidx.test.espresso:espresso-contrib:" + versions.espressoVersion
 
     androidTestImplementation 'androidx.test:runner:' + versions.testRunner
-    androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoCore
+
+    androidTestImplementation 'androidx.test.espresso:espresso-core:' + versions.espressoVersion
+
     androidTestImplementation 'androidx.arch.core:core-testing:' + versions.coreTestingVersion
+
+    androidTestImplementation "junit:junit:" + versions.junit
+
+    androidTestImplementation "androidx.test.ext:junit:" + versions.androidXTestExtKotlinRunnerVersion
+
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:" + versions.coroutinesCore
 
     // Kotlin
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8:' + versions.kotlin
